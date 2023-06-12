@@ -1,0 +1,12 @@
+<div class="container">
+  <h3>Wybierz miejsca</h3>
+<div #myElement class="wrapper">
+  <div class="seat-grid">
+    <div *ngFor="let seat of generateSeatGrid(); let i = index" class="seat" [class.selected]="isSelected(seat.seat)"
+      [class.disabled]="seat.disabled" (click)="selectSeat(seat.seat)">
+      {{ seat.seat }}
+    </div>
+  </div>
+
+</div>
+</div>

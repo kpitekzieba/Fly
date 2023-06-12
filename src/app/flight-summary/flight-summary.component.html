@@ -1,0 +1,72 @@
+<app-header></app-header>
+<div class="details" *ngIf="selectedFlight">
+  <div class="flight">
+    <h2>Informacje o locie</h2>
+    Wylot:
+    <b>
+      {{ selectedFlight.departure.city }}, {{ selectedFlight.departure.country }}, {{
+      selectedFlight.departure.continent }}, {{ selectedFlight.date | date:'shortDate' }} {{
+      selectedFlight.departureTime
+      }}
+    </b>
+    <br>
+    Przylot:
+    <b>
+      {{ selectedFlight.arrival.city }}, {{ selectedFlight.arrival.country }}, {{
+      selectedFlight.arrival.continent }}, {{ selectedFlight.date | date:'shortDate'}} {{ selectedFlight.arrivalTime
+      }}
+    </b>
+    <br>
+  </div>
+  <div class="weather">
+    <app-weather2></app-weather2>
+  </div>
+</div>
+
+
+
+<div class="tickets">
+  <h2>Twoje bilety</h2>
+
+
+
+
+  <div class="wrapper">
+    <table>
+      <thead>
+        <tr>
+          <th>Miejsce</th>
+          <th>Cena za miejsce</th>
+          <th>Cena za bagaż</th>
+          <th>Razem</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let seatOption of selectedSeatOptions">
+          <td>{{ seatOption.seat }}</td>
+          <td>{{ getPriceForSeat(seatOption) | currency:selectedCurrency:true }}</td>
+          <td>{{ getPriceForLuggage(seatOption.option) | currency:selectedCurrency:true }}</td>
+          <td>{{ getPriceForSeatWithLuggage(seatOption) | currency:selectedCurrency:true }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div>
+    Cena za wszystkie bilety: <b>{{ getTotalPrice() | currency:selectedCurrency:true }}</b>
+  </div>
+
+  <div class="currency">
+    <select id="currency-select" [(ngModel)]="selectedCurrency">
+      <option value="PLN">PLN</option>
+      <option value="USD">USD</option>
+      <option value="EUR">EUR</option>
+    </select>
+  </div>
+
+
+  <div class="back">
+    <a href="/">Wyszukaj nowy lot</a>
+  </div>
+
+</div>

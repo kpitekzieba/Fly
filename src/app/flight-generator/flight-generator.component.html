@@ -1,0 +1,73 @@
+<div class="container">
+  <div class="select">
+    <label for="departure-city">Skąd:</label>
+    <select id="departure-city" [(ngModel)]="departure">
+      <option *ngFor="let city of departureCities" [ngValue]="city">{{ city.city }}</option>
+    </select>
+  </div>
+
+  <div class="select">
+    <label for="arrival-city">Dokąd:</label>
+    <select id="arrival-city" [(ngModel)]="arrival">
+      <option *ngFor="let city of arrivalCities" [ngValue]="city">{{ city.city }}</option>
+    </select>
+  </div>
+
+  <div class="select">
+    <label for="flight-date">Wylot:</label>
+    <input type="date" id="flight-date" [(ngModel)]="flightDate">
+  </div>
+
+  <div class="select passengers">
+    <label for="arrival-city">Pasażerowie:</label>
+    <select id="arrival-city" [(ngModel)]="seatsAmount" >
+      <option value="1">1</option>
+      <option value="2">2</option>
+      <option value="3">3</option>
+      <option value="4">4</option>
+      <option value="5">5</option>
+    </select>
+  </div>
+
+
+
+
+  <button (click)="generateFlights()">Szukaj</button>
+</div>
+
+
+
+<div class="results" *ngIf="generatedFlights.length > 0">
+  <h3>Znalezione loty:</h3>
+  <ul>
+    <li *ngFor="let flight of generatedFlights">
+      <div class="date">
+        {{ flight.date | date:'shortDate' }}<br>
+      </div>
+      <div class="info">
+        <div class="departure">
+          <div class="time">{{ flight.departureTime }}</div>
+          <div class="city">{{ flight.departure.city }}</div>
+        </div>
+        <div class="icon">
+          <img src="assets/flight.PNG" alt="flight" class="flight">
+        </div>
+        <div class="arrival">
+          <div class="time">{{ flight.arrivalTime }}</div>
+          <div class="city">{{ flight.arrival.city }}</div>
+        </div>
+      </div>
+      <div>
+        <!-- Departure: {{ flight.departure.city }}, {{ flight.departure.country }}, {{ flight.departure.continent }}<br>
+        Arrival: {{ flight.arrival.city }}, {{ flight.arrival.country }}, {{ flight.arrival.continent }}<br>
+
+        Departure Time: {{ flight.departureTime }}<br>
+        Arrival Time: {{ flight.arrivalTime }}<br> -->
+        <div class="button">
+          <button (click)="viewFlightDetails(flight)">Wybierz</button>
+        </div>
+
+      </div>
+    </li>
+  </ul>
+</div>

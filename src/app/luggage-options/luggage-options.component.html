@@ -1,0 +1,16 @@
+<div class="container">
+  <h3>Wybierz opcje bagażu</h3>
+  <div class="wrapper" *ngFor="let seatIndex of seatIndexes">
+    <div class="item" *ngIf="seatSelected(seatIndex)">
+      <div class="text"> Miejsce <b>{{ selectedSeats[seatIndex] }}</b>
+      </div>
+      <div class="options">
+        <div class="option" *ngFor="let option of luggageOptions" (click)="onSelectLuggageOption(seatIndex, option)"
+          [class.selected]="isSelectedOption(seatIndex, option)">
+          {{ option }}
+        </div>
+      </div>
+    </div>
+  </div>
+  <button (click)="saveSeatOptions()">Potwierdzam</button>
+</div>

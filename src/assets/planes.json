@@ -1,0 +1,17 @@
+[
+    {
+      "planeName": "Dreamliner 787",
+      "planeType": "big",
+      "numberOfSeats": 124
+    },
+    {
+      "planeName": "Boeing 737",
+      "planeType": "medium",
+      "numberOfSeats": 88
+    },
+    {
+      "planeName": "Embraer",
+      "planeType": "small",
+      "numberOfSeats": 68
+    }
+  ]

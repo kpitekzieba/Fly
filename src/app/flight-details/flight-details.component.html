@@ -1,0 +1,46 @@
+<app-header></app-header>
+
+
+<app-login-popup *ngIf="showModal" (loggedIn)="loginSuccessful()"></app-login-popup>
+<div *ngIf="!showModal">
+  <div class="details" *ngIf="selectedFlight">
+    <div class="flight">
+      <h2>Informacje o locie</h2>
+      Wylot:
+      <b>
+        {{ selectedFlight.departure.city }}, {{ selectedFlight.departure.country }}, {{
+        selectedFlight.departure.continent }}, {{ selectedFlight.date | date:'shortDate' }} {{
+        selectedFlight.departureTime
+        }}
+      </b>
+      <br>
+      Przylot:
+      <b>
+        {{ selectedFlight.arrival.city }}, {{ selectedFlight.arrival.country }}, {{
+        selectedFlight.arrival.continent }}, {{ selectedFlight.date | date:'shortDate'}} {{ selectedFlight.arrivalTime
+        }}
+      </b>
+      <br>
+      Wybrana ilość pasażerów:
+      <b>{{ seatsAmount }}</b>
+    </div>
+    <div class="planeInfo">
+      <h2>Informacje o samolocie</h2>
+      Nazwa: <b>{{ planeName }}</b><br>
+      Ilość miejsc: <b>{{ numberOfSeats }}</b><br>
+    </div>
+
+  </div>
+
+
+
+  <div *ngIf="!hasSelectedSeats">
+    <app-seat-generator [numberOfSeats]="numberOfSeats" [seatsAmount]="seatsAmount"></app-seat-generator>
+    <button (click)="checkSelectedSeats()">Potwierdzam</button>
+  </div>
+
+
+  <app-luggage-options *ngIf="hasSelectedSeats" [numberOfSeats]="seatsAmount"></app-luggage-options>
+
+
+</div>

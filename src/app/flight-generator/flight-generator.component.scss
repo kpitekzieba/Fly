@@ -1,0 +1,131 @@
+$glass: rgba(255, 255, 255, 0.2);
+$glass-icon: rgba(255, 255, 255, 0.3);
+$gradient: linear-gradient(35deg, red, purple);
+$option: #0046a8;
+
+
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  background: #05203c;
+  color: #fff;
+  padding: 20px;
+  flex-wrap: wrap;
+  .select {
+    margin-left: 5px;
+    margin-right: 5px;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    label {
+      display: block;
+      margin-right: 10px;
+      margin-bottom: 10px;
+    }
+    select {
+      appearance: none;
+      border: 0;
+      outline: 0;
+      width: 20em;
+      height: 3em;
+      padding: 0 4em 0 1em;
+      background: url(../../assets/arrow.svg) no-repeat right 0.8em center /
+          1.4em,
+        linear-gradient(to left, $glass-icon 3em, $glass 3em);
+      color: white;
+      border-radius: 0.25em;
+      box-shadow: 0 0 1em 0 rgba(0, 0, 0, 0.2);
+      cursor: pointer;
+      &:focus {
+        outline: none;
+      }
+
+      option {
+        color: inherit;
+        background-color: $option;
+      }
+    }
+    input {
+      appearance: none;
+      border: 0;
+      outline: 0;
+      font: inherit;
+      width: 20em;
+      height: 2.5em;
+      padding: 0 1em 0 1em;
+      background: linear-gradient(to left, $glass-icon 3em, $glass 3em);
+      color: white;
+      border-radius: 0.25em;
+      box-shadow: 0 0 1em 0 rgba(0, 0, 0, 0.2);
+    }
+  }
+  .passengers {
+    select {
+      width: 7em;
+    }
+  }
+  button {
+    appearance: none;
+    border: 0;
+    outline: 0;
+    cursor: pointer;
+    font: inherit;
+    width: 5em;
+    height: 3em;
+    padding: 0 1em 0 1em;
+    background: linear-gradient(to left, $glass-icon 1em, $glass 7em);
+    color: white;
+    border-radius: 0.25em;
+    box-shadow: 0 0 1em 0 rgba(0, 0, 0, 0.2);
+    margin-bottom: 33px;
+    margin-top: 33px;
+  }
+}
+
+.results {
+  background: #eee;
+  padding: 40px;
+  ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    li {
+      display: flex;
+      flex-wrap: wrap;
+      margin: 0;
+      padding: 40px 50px;
+      margin-bottom: 40px;
+      margin-top: 40px;
+      background: #fff;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+      justify-content: space-between;
+      .info {
+        display: flex;
+        flex-wrap: wrap;
+        margin-left: 20px;
+        margin-right: 20px;
+        .icon {
+          img {
+            width: 270px;
+            @media (max-width: 768px) {
+             width:1%; 
+            }
+          }
+        }
+      }
+      button {
+        appearance: none;
+        border: 0;
+        outline: 0;
+        cursor: pointer;
+        font: inherit;
+        padding: 16px 30px;
+        background: #05203c;
+        color: #fff;
+        border-radius: 0.25em;
+        box-shadow: 0 0 1em 0 rgba(0, 0, 0, 0.2);
+        text-transform: uppercase;
+      }
+    }
+  }
+}

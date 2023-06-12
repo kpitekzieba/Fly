@@ -1,0 +1,31 @@
+.header {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding: 0 60px;
+
+  .logo {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    img {
+      width: 100px;
+    }
+
+    .title {
+      font-size: 26px;
+      margin-top: 10px;
+      color: #032a64;
+      
+    }
+  }
+
+  .date {
+    margin-top: 30px;
+    font-size: 26px;
+  }
+
+  .weather {
+    margin-top: 30px;
+  }
+}
