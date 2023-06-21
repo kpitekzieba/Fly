@@ -1,6 +1,27 @@
 # Loty
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.2.11.
+The goal of the project is to develop a flight reservation application that allows users to search and book flights.
+Project authors: Karolina Piszczek, Katarzyna Pitek-Zięba, Kamila Świda
+
+## Technologies Used
+
+The project utilizes the following technologies:
+Angular
+TypeScript
+HTML
+SCSS
+
+## Installation
+
+To run this project locally, follow these steps:
+
+Clone the repository: git clone https://github.com/your-username/your-repository.git
+Navigate to the project directory: cd your-repository
+Install the dependencies: npm install
+Build the project: ng build
+Start the development server: ng serve
+Open your web browser and visit: http://localhost:4200
 
 ## Development server
 
